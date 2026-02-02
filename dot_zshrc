@@ -5,11 +5,21 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 mkdir -p "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME"
 
+# XDG for programs that support it
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export LESSHISTFILE="$XDG_STATE_HOME/less/history"
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
+export PSQL_HISTORY="$XDG_STATE_HOME/psql/history"
+mkdir -p "$CARGO_HOME" "$DOCKER_CONFIG" "$GNUPGHOME" "$XDG_STATE_HOME/less" "$XDG_STATE_HOME/zsh" "$XDG_STATE_HOME/psql"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ -r "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Setup homebrew env
