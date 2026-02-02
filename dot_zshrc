@@ -39,4 +39,5 @@ source <(fzf --zsh)
 
 # Syntax highlighting and autosuggestions (must be near end of zshrc)
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
