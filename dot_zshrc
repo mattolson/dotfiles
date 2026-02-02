@@ -19,7 +19,7 @@ export WORKSPACE="$HOME/dev/workspace"
 export PROJ_ROOT="$WORKSPACE/mattolson/$CURRENT_PROJ"
 
 # Aliases
-alias ls='ls -alF'
+alias ls='ls -alFG'
 alias be='bundle exec'
 alias dc='docker compose'
 alias dot='chezmoi'
