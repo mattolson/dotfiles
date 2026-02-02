@@ -20,6 +20,10 @@ brew "docker-credential-helper"
 brew "fzf"
 # Zsh prompt theme
 brew "powerlevel10k"
+# Fish-like autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish-like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
 # GitHub command-line tool
 brew "gh"
 # Cryptography and SSL/TLS Toolkit

@@ -33,3 +33,10 @@ function gp() { cd $PROJ_ROOT; }
 
 # Mise
 [[ -x ~/.local/bin/mise ]] && eval "$(~/.local/bin/mise activate zsh)"
+
+# fzf keybindings and completion (ctrl-r, ctrl-t, alt-c)
+source <(fzf --zsh)
+
+# Syntax highlighting and autosuggestions (must be near end of zshrc)
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
