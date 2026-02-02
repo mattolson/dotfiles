@@ -1,56 +1,35 @@
-# XDG dirs
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-mkdir -p "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME"
-
-# XDG for programs that support it
-export BUNDLE_USER_HOME="$XDG_DATA_HOME/bundle"
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export COLIMA_HOME="$XDG_DATA_HOME/colima"
-export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-export GEMRC="$XDG_CONFIG_HOME/gem/gemrc"
-export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
-export LESSHISTFILE="$XDG_STATE_HOME/less/history"
-export HISTFILE="$XDG_STATE_HOME/zsh/history"
-export PSQL_HISTORY="$XDG_STATE_HOME/psql/history"
-mkdir -p "$BUNDLE_USER_HOME" "$CARGO_HOME" "$COLIMA_HOME" "$DOCKER_CONFIG" "${GEMRC%/*}" "$GNUPGHOME" "$XDG_STATE_HOME/less" "$XDG_STATE_HOME/zsh" "$XDG_STATE_HOME/psql"
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# Powerlevel10k instant prompt
+# Must stay near top. Code requiring console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else below.
 if [[ -r "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Setup homebrew env
-eval $(/opt/homebrew/bin/brew shellenv)
-export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile"
-
-# Powerlevel10k prompt theme (must load before Prezto)
+# Powerlevel10k theme
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
-# Source Prezto.
+# Prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Project shortcuts
 export CURRENT_PROJ="agent-sandbox"
 export WORKSPACE="$HOME/dev/workspace"
 export PROJ_ROOT="$WORKSPACE/mattolson/$CURRENT_PROJ"
 
+# Aliases
 alias ls='ls -alF'
 alias be='bundle exec'
 alias dc='docker compose'
 alias dot='chezmoi'
 
+# Functions
 function ws() { cd $WORKSPACE; }
 function gp() { cd $PROJ_ROOT; }
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# Powerlevel10k config
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Mise
-eval "$(~/.local/bin/mise activate zsh)"
+[[ -x ~/.local/bin/mise ]] && eval "$(~/.local/bin/mise activate zsh)"

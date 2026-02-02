@@ -1,5 +1,32 @@
-# Adapted from zprezto/runcoms
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 
+# XDG paths for programs that support it
+export BUNDLE_USER_HOME="$XDG_DATA_HOME/bundle"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export COLIMA_HOME="$XDG_DATA_HOME/colima"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export GEMRC="$XDG_CONFIG_HOME/gem/gemrc"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export LESSHISTFILE="$XDG_STATE_HOME/less/history"
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
+export PSQL_HISTORY="$XDG_STATE_HOME/psql/history"
+
+# Create XDG directories
+mkdir -p "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME" \
+  "$BUNDLE_USER_HOME" "$CARGO_HOME" "$COLIMA_HOME" "$DOCKER_CONFIG" \
+  "${GEMRC%/*}" "$GNUPGHOME" "$XDG_STATE_HOME/less" "$XDG_STATE_HOME/zsh" \
+  "$XDG_STATE_HOME/psql"
+
+# Homebrew
+eval $(/opt/homebrew/bin/brew shellenv)
+export HOMEBREW_BUNDLE_FILE="$XDG_CONFIG_HOME/homebrew/Brewfile"
+
+# Editor and pager
 export BROWSER='open'
 export EDITOR='vim'
 export VISUAL='vim'
@@ -9,25 +36,30 @@ if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
 
-# Ensure path arrays do not contain duplicates.
+# Ensure path arrays do not contain duplicates
 typeset -gU cdpath fpath mailpath path
 
-# Set the list of directories that Zsh searches for programs.
+# Set the list of directories that Zsh searches for programs
 path=(
   $HOME/.local/{,s}bin(N)
   /usr/local/{,s}bin(N)
   $path
 )
 
-# Set the default Less options.
-# Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
-# Remove -X to enable it.
+# Less options
+# -g: highlight only last search match
+# -i: case-insensitive search
+# -M: verbose prompt
+# -R: raw control chars (for colors)
+# -S: chop long lines
+# -w: highlight first new line after forward movement
+# -X: don't clear screen on exit
+# -z-4: scroll window size
 if [[ -z "$LESS" ]]; then
   export LESS='-g -i -M -R -S -w -X -z-4'
 fi
 
-# Set the Less input preprocessor.
-# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
+# Less input preprocessor
 if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
