@@ -18,6 +18,8 @@ brew "docker-compose"
 brew "docker-credential-helper"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Zsh prompt theme
+brew "powerlevel10k"
 # GitHub command-line tool
 brew "gh"
 # Cryptography and SSL/TLS Toolkit
@@ -32,6 +34,4 @@ brew "rclone"
 brew "restic"
 # General-purpose lossless data-compression library
 brew "zlib"
-# Next-generation plugin manager for zsh
-brew "zplug"
 vscode "ms-vscode-remote.remote-containers"
