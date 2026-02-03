@@ -41,6 +41,7 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs
 path=(
   $HOME/.local/{,s}bin(N)
+  $HOME/.volta/bin
   /usr/local/{,s}bin(N)
   $path
 )
