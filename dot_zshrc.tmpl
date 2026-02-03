@@ -8,11 +8,6 @@ fi
 # Powerlevel10k theme
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
-# Prezto
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
 # Project shortcuts
 {{- if eq .chezmoi.hostname "Sierra" }}
 export CURRENT_PROJ="mattolson/agent-sandbox"
@@ -45,3 +40,23 @@ source <(fzf --zsh)
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Completion system (after plugins that may modify completion)
+zmodload zsh/complist
+autoload -Uz compinit && compinit
+setopt MENU_COMPLETE
+LISTMAX=0
+
+# Completion caching
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
+
+# Case-insensitive, partial-word, and substring completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# Menu selection with arrow keys
+zstyle ':completion:*:*:*:*:*' menu select
+bindkey -M menuselect '^[[A' up-line-or-history
+bindkey -M menuselect '^[[B' down-line-or-history
+bindkey -M menuselect '^[[D' backward-char
+bindkey -M menuselect '^[[C' forward-char
