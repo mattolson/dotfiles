@@ -1,6 +1,10 @@
 [user]
   name = Matt Olson
+{{- if eq .chezmoi.hostname "Sierra" }}
   email = matt@mattolson.com
+{{- else }}
+  email = matt.olson@workos.com
+{{- end }}
 [color]
   branch = auto
   diff = auto
@@ -28,3 +32,5 @@
   user = mattolson
 [init]
   defaultBranch = main
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/

@@ -14,9 +14,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Project shortcuts
-export CURRENT_PROJ="agent-sandbox"
+{{- if eq .chezmoi.hostname "Sierra" }}
+export CURRENT_PROJ="mattolson/agent-sandbox"
+{{- else }}
+export CURRENT_PROJ="workos/infra"
+{{- end }}
 export WORKSPACE="$HOME/dev/workspace"
-export PROJ_ROOT="$WORKSPACE/mattolson/$CURRENT_PROJ"
+export PROJ_ROOT="$WORKSPACE/$CURRENT_PROJ"
 
 # Aliases
 alias ls='ls -alFG'
