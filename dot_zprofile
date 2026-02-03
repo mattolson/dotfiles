@@ -13,7 +13,6 @@ export GEMRC="$XDG_CONFIG_HOME/gem/gemrc"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export LESSHISTFILE="$XDG_STATE_HOME/less/history"
-export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export PSQL_HISTORY="$XDG_STATE_HOME/psql/history"
 
 # Create XDG directories

@@ -44,6 +44,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # History
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
 HISTSIZE=50000
 SAVEHIST=50000
 setopt HIST_IGNORE_DUPS
