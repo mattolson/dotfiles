@@ -38,4 +38,7 @@ brew "rclone"
 brew "restic"
 # General-purpose lossless data-compression library
 brew "zlib"
+# Required to build ruby
+brew "libyaml"
+
 vscode "ms-vscode-remote.remote-containers"

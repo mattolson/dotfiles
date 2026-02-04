@@ -1,4 +1,5 @@
 [tools]
+"aqua:aws/aws-cli" = "latest"
 node = "24"
 ruby = "3"
 
