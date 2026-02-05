@@ -30,6 +30,7 @@ export BROWSER='open'
 export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
+export LESS="-RFSX"
 
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
