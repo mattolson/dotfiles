@@ -62,5 +62,6 @@
       "Bash(kubectl)"
     ]
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "model": "claude-opus-4-6[1m]"
 }
