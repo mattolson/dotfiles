@@ -5,8 +5,8 @@
 config-file = ?theme-current
 
 # Font settings
-font-family = MesloLGS NF
-font-size = 14
+font-family = Hack Nerd Font
+font-size = 15
 
 # Terminal
 term = xterm-256color

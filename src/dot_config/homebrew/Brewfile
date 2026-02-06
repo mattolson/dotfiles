@@ -40,5 +40,7 @@ brew "restic"
 brew "zlib"
 # Required to build ruby
 brew "libyaml"
+# For terminal and coding
+cask "font-hack-nerd-font"
 
 vscode "ms-vscode-remote.remote-containers"
