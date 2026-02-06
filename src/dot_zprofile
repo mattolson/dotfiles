@@ -7,6 +7,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # XDG paths for programs that support it
 export BUNDLE_USER_HOME="$XDG_DATA_HOME/bundle"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export COLIMA_HOME="$XDG_DATA_HOME/colima"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GEMRC="$XDG_CONFIG_HOME/gem/gemrc"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
@@ -16,7 +17,7 @@ export PSQL_HISTORY="$XDG_STATE_HOME/psql/history"
 
 # Create XDG directories
 mkdir -p "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME" \
-  "$BUNDLE_USER_HOME" "$CARGO_HOME" "$DOCKER_CONFIG" \
+  "$BUNDLE_USER_HOME" "$CARGO_HOME" "$COLIMA_HOME" "$DOCKER_CONFIG" \
   "${GEMRC%/*}" "$GNUPGHOME" "$XDG_STATE_HOME/less" "$XDG_STATE_HOME/zsh" \
   "$XDG_STATE_HOME/psql"
 
