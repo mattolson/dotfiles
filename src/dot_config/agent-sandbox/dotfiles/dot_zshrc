@@ -1,0 +1,51 @@
+# History
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
+HISTSIZE=50000
+SAVEHIST=50000
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
+
+# Aliases
+alias ls='ls -alF --color=auto'
+alias grep='grep --color=auto'
+alias mkdir='mkdir -p'
+alias dc='docker compose'
+alias yc='claude --dangerously-skip-permissions'
+
+# fzf keybindings and completion (ctrl-r, ctrl-t, alt-c)
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+
+# Vi mode
+bindkey -v
+KEYTIMEOUT=1
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+bindkey '^W' backward-kill-word
+bindkey '^U' backward-kill-line
+
+# Completion system
+zmodload zsh/complist
+autoload -Uz compinit && compinit
+setopt MENU_COMPLETE
+LISTMAX=0
+
+# Completion caching
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
+
+# Case-insensitive, partial-word, and substring completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# Menu selection with arrow keys
+zstyle ':completion:*:*:*:*:*' menu select
+bindkey -M menuselect '^[[A' up-line-or-history
+bindkey -M menuselect '^[[B' down-line-or-history
+bindkey -M menuselect '^[[D' backward-char
+bindkey -M menuselect '^[[C' forward-char
+
+# Simple prompt
+PROMPT='%F{117}%n@%m%f:%F{214}%~%f%# '
+

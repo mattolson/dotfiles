@@ -1,0 +1,24 @@
+# Claude local settings
+**/.claude/settings.local.json
+
+# vim
+*.swp
+
+# OSX
+.DS_Store
+
+# WebStorm
+.idea
+
+# ruby
+**/vendor/bundle
+**/.bundle/*
+.yardoc
+
+# dotenv, direnv
+.env
+.envrc
+
+# Node
+node_modules
+

@@ -24,6 +24,7 @@ alias mkdir='mkdir -p'
 alias be='bundle exec'
 alias dc='docker compose'
 alias dot='chezmoi'
+alias export-dotfiles='mkdir -p ~/.config/dotfiles && dot archive --output=~/.config/dotfiles/archive.tar.gz'
 
 # Functions
 function ws() { cd $WORKSPACE; }
