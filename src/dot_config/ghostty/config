@@ -28,6 +28,7 @@ mouse-hide-while-typing = true
 
 # Clipboard
 copy-on-select = false
+clipboard-paste-protection = false
 
 # Tab navigation
 keybind = cmd+right=next_tab
