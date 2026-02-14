@@ -14,4 +14,7 @@
   "terminal.integrated.initialHint": false,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.trimTrailingWhitespace": true,
+  "github.copilot.enable": {
+    "*": false
+  },
 }
