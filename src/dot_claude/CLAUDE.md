@@ -49,3 +49,11 @@ Do not apologize when challenged. If something you said turns out to be incorrec
 ## Input Context
 
 Prompts often come through voice transcription. Expect occasional typos or grammatical errors. Interpret the intended meaning without commenting on them unless the meaning is genuinely ambiguous.
+
+## Git Workflow
+
+When working in a git repository, follow these rules strictly:
+
+- Never amend commits. Always create new commits, even for small changes. The branch may already be pushed to GitHub for review, and amending followed by force-push destroys the reviewer's ability to see incremental changes.
+- Never commit directly to the main branch. If unsure which branch a change belongs on, ask the user.
+- When creating a new branch for new work, always pull the main branch from origin first, then create the new branch from the updated main.
