@@ -40,6 +40,9 @@ brew "restic"
 brew "zlib"
 # Required to build ruby
 brew "libyaml"
+# General purpose utilities
+brew "yq"
+brew "jq"
 # For terminal and coding
 cask "font-hack-nerd-font"
 
