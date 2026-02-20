@@ -1,20 +1,26 @@
 {
   "git.openRepositoryInParentFolders": "always",
   "[ruby]": {
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[javascript]": {
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
+  "window.zoomLevel": 1,
+  "extensions.ignoreRecommendations": true,
+  "git.blame.editorDecoration.enabled": true,
+  "git.blame.statusBarItem.enabled": true,
   "explorer.confirmDragAndDrop": false,
   "workbench.startupEditor": "none",
   "redhat.telemetry.enabled": false,
   "editor.accessibilitySupport": "off",
+  "editor.fontFamily": "'Hack Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 13,
   "claudeCode.preferredLocation": "panel",
   "terminal.integrated.initialHint": false,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.trimTrailingWhitespace": true,
   "github.copilot.enable": {
     "*": false
-  },
+  }
 }
