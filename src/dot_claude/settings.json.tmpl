@@ -1,11 +1,15 @@
 {
 {{- if eq .chezmoi.hostname "Sierra" }}
-  "model": "opus"
+  "model": "opus",
 {{- else }}
-  "model": "opus[1m]"
+  "model": "opus[1m]",
 {{- end }}
   "alwaysThinkingEnabled": true,
-  "includeCoAuthoredBy": false,
+  "effortLevel": "high",
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "allow": [
       "Bash(cat:*)",
