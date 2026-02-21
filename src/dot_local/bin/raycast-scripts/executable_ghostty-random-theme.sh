@@ -13,32 +13,22 @@
 # @raycast.authorURL https://github.com/mattolson
 
 THEMES=(
-  "Belafonte Night"
-  "Black Metal"
-  "Catppuccin Mocha"
-  "Cutie Pro"
-  "Everblush"
-  "Everforest Dark Hard"
-  "Ghostty Default Style Dark"
-  "GitLab Dark Grey"
-  "Hivacruz"
-  "Hybrid"
-  "Melange Dark"
-  "Monokai Pro Machine"
+  # Like default theme but better contrast for highlight color
   "Nightfox"
-  "Oceanic Next"
-  "Pnevma"
-  "Red Planet"
-  "Relaxed"
+  # Nice aubergine
+  "Belafonte Night"
+  # Nice deep purple, brighter text contrast than belafonte night
   "Rose Pine"
-  "Ryuuko"
-  "Solarized Dark Patched"
-  "Spacegray"
-  "Subliminal"
-  "Terafox"
-  "Tomorrow Night"
-  "Zenbones Dark"
+  # Very pleasant dark
+  "Everblush"
+  # Nice generic dark
   "Zenwritten Dark"
+  # A little brighter but nice
+  "Melange Dark"
+  # A bit brighter but nice
+  "Subliminal"
+  # Interesting green
+  "Terafox"
 )
 
 # Pick a random theme

@@ -1,4 +1,10 @@
 {
+{{- if eq .chezmoi.hostname "Sierra" }}
+  "model": "opus"
+{{- else }}
+  "model": "opus[1m]"
+{{- end }}
+  "alwaysThinkingEnabled": true,
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
@@ -61,7 +67,5 @@
       "Bash(aws)",
       "Bash(kubectl)"
     ]
-  },
-  "alwaysThinkingEnabled": true,
-  "model": "claude-opus-4-6[1m]"
+  }
 }

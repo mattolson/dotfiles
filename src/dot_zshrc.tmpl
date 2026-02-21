@@ -27,6 +27,7 @@ alias dot='chezmoi'
 alias av='aws-vault'
 alias hobbs='cd ~/hobbs && dc up -d && dc exec hobbs zsh'
 alias export-dotfiles='mkdir -p ~/.config/dotfiles && dot archive --output=~/.config/dotfiles/archive.tar.gz'
+alias box='agentbox'
 
 # Functions
 function ws() { cd $WORKSPACE; }
@@ -40,6 +41,11 @@ function gp() { cd $PROJ_ROOT; }
 
 # fzf keybindings and completion (ctrl-r, ctrl-t, alt-c)
 source <(fzf --zsh)
+
+# Ghostty shell integration
+if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
+  source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+fi
 
 # Syntax highlighting and autosuggestions (must be near end of zshrc)
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

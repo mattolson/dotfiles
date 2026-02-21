@@ -44,6 +44,7 @@ path=(
   $HOME/.local/{,s}bin(N)
   $HOME/.volta/bin
   /usr/local/{,s}bin(N)
+  $HOME/dev/workspace/mattolson/agent-sandbox/cli/bin
   $path
 )
 
