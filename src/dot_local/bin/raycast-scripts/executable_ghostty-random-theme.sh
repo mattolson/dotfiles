@@ -12,24 +12,8 @@
 # @raycast.author Matt Olson
 # @raycast.authorURL https://github.com/mattolson
 
-THEMES=(
-  # Like default theme but better contrast for highlight color
-  "Nightfox"
-  # Nice aubergine
-  "Belafonte Night"
-  # Nice deep purple, brighter text contrast than belafonte night
-  "Rose Pine"
-  # Very pleasant dark
-  "Everblush"
-  # Nice generic dark
-  "Zenwritten Dark"
-  # A little brighter but nice
-  "Melange Dark"
-  # A bit brighter but nice
-  "Subliminal"
-  # Interesting green
-  "Terafox"
-)
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/ghostty-themes.sh"
 
 # Pick a random theme
 RANDOM_INDEX=$((RANDOM % ${#THEMES[@]}))
