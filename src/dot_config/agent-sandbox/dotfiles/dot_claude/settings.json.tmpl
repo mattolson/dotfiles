@@ -1,5 +1,16 @@
 {
-  "includeCoAuthoredBy": false,
+{{- if eq .chezmoi.hostname "Sierra" }}
+  "model": "opus",
+{{- else }}
+  "model": "opus[1m]",
+{{- end }}
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "skipDangerousModePermissionPrompt": "true",
   "permissions": {
     "allow": [
       "Bash(cat:*)",
@@ -61,7 +72,5 @@
       "Bash(aws)",
       "Bash(kubectl)"
     ]
-  },
-  "alwaysThinkingEnabled": true,
-  "model": "claude-opus-4-6[1m]"
+  }
 }
