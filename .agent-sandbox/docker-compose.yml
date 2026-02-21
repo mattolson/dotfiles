@@ -1,59 +1,61 @@
 # Claude Code Sandbox
-#
-# Works with both devcontainer (VS Code, JetBrains) and CLI usage.
-# A .env file at the project root sets COMPOSE_FILE so that
-# `docker compose` commands work from the project directory.
-#
-# CLI usage:
-#   docker compose up -d
-#   docker compose exec agent zsh
-#   claude
-#   docker compose down
-#
-# For reproducibility, pin images to a specific digest:
-#   image: ghcr.io/mattolson/agent-sandbox-claude@sha256:<digest>
-#   image: ghcr.io/mattolson/agent-sandbox-proxy@sha256:<digest>
-
+name: dotfiles
 services:
   proxy:
-    image: ghcr.io/mattolson/agent-sandbox-proxy:latest
+    image: ghcr.io/mattolson/agent-sandbox-proxy@sha256:5084698839c6c9259064757b22820a280115c39ccb443ab1dadcd906bdddd434
+    cap_drop:
+      - ALL
+    cap_add:
+      - DAC_OVERRIDE
     environment:
       - PROXY_MODE=enforce
     volumes:
       - proxy-state:/home/mitmproxy/.mitmproxy
       - proxy-ca:/ca-export
-      - ./policy.yaml:/etc/mitmproxy/policy.yaml:ro
+      - ../.agent-sandbox/policy-cli-claude.yaml:/etc/mitmproxy/policy.yaml:ro
     healthcheck:
       test: ["CMD", "nc", "-z", "localhost", "8080"]
       interval: 5s
       timeout: 3s
       retries: 3
-
   agent:
-    image: ghcr.io/mattolson/agent-sandbox-claude:latest
+    image: ghcr.io/mattolson/agent-sandbox-claude@sha256:9b3ea4910a51713548db3992319f649b95648e137a3f49959376fe9da6b7dff1
     depends_on:
       proxy:
         condition: service_healthy
-    # Required for iptables firewall setup. The agent runs as non-root and
-    # sudoers only permits specific scripts, so it cannot modify iptables directly.
+    cap_drop:
+      - ALL
     cap_add:
+      # Required for iptables firewall setup. The agent runs as non-root and
+      # sudoers only permits specific scripts, so it cannot modify iptables directly.
       - NET_ADMIN
       - NET_RAW
+      - SETUID
+      - SETGID
     volumes:
       # Project workspace
-      - ../:/workspace
-      # Prevent agent from modifying compose, policy, or devcontainer config
-      - .:/workspace/.devcontainer:ro
+      - ..:/workspace
+      # Read-only policy directory
+      - ../.agent-sandbox:/workspace/.agent-sandbox:ro
       # Persist Claude credentials
       - claude-state:/home/dev/.claude
       # Persist shell history
       - claude-history:/commandhistory
       # Proxy CA certificate (public cert only, no private key)
       - proxy-ca:/etc/mitmproxy:ro
-      # Dotfiles (optional - auto-linked into $HOME at startup)
-      - ${HOME}/.config/agent-sandbox/dotfiles:/home/dev/.dotfiles:ro
+      # Host Claude config (optional)
+      # - ${HOME}/.claude/CLAUDE.md:/home/dev/.claude/CLAUDE.md:ro
+      # - ${HOME}/.claude/settings.json:/home/dev/.claude/settings.json:ro
       # Shell customizations (optional - scripts sourced at shell startup)
       - ${HOME}/.config/agent-sandbox/shell.d:/home/dev/.config/agent-sandbox/shell.d:ro
+      # Dotfiles (optional - auto-linked into $HOME at startup)
+      - ${HOME}/.config/agent-sandbox/dotfiles:/home/dev/.dotfiles:ro
+      # Read-only Git directory
+      # - ../.git:/workspace/.git:ro
+      # Read-only IntelliJ IDEA project directory
+      # - ../.idea:/workspace/.idea:ro
+      # Read-only VS Code project directory
+      # - ../.vscode:/workspace/.vscode:ro
     working_dir: /workspace
     stdin_open: true
     tty: true
@@ -65,7 +67,6 @@ services:
       - NO_PROXY=localhost,127.0.0.1,proxy
       # Disable HTTP/2 in Go clients (gh CLI) to avoid header validation issues through proxy
       - GODEBUG=http2client=0
-
 volumes:
   claude-state:
   claude-history:
