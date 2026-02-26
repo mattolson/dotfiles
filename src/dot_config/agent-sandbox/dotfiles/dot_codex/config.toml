@@ -1,0 +1,14 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+# Model selection
+model = "gpt-5.3-codex"
+
+# We update via agent-sandbox image pinning
+check_for_update_on_startup = false
+
+# Auth credentials stored in docker volume and preserved across restarts
+cli_auth_credentials_store = "file"
+
+# Disable Codex's internal Landlock/seccomp sandbox.
+# Container-level sandboxing (iptables + proxy) handles isolation.
+sandbox_mode = "danger-full-access"
