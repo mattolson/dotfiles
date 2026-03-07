@@ -1,7 +1,8 @@
 #:schema https://developers.openai.com/codex/config-schema.json
 
 # Model selection
-model = "gpt-5.3-codex"
+model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
 
 # We update via agent-sandbox image pinning
 check_for_update_on_startup = false
@@ -12,3 +13,6 @@ cli_auth_credentials_store = "file"
 # Disable Codex's internal Landlock/seccomp sandbox.
 # Container-level sandboxing (iptables + proxy) handles isolation.
 sandbox_mode = "danger-full-access"
+
+# Instruct Codex to not stop at .git root, but look for the following files to determine project root
+project_root_markers = [".agent-sandbox"]
