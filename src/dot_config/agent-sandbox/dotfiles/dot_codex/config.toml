@@ -16,3 +16,11 @@ sandbox_mode = "danger-full-access"
 
 # Instruct Codex to not stop at .git root, but look for the following files to determine project root
 project_root_markers = [".agent-sandbox"]
+
+# MCP
+[features]
+experimental_use_rmcp_client = true
+
+[mcp_servers.linear]
+url = "https://mcp.linear.app/mcp"
+
