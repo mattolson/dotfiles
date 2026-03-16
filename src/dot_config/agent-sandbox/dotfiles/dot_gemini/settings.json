@@ -1,0 +1,26 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    },
+    "enablePermanentToolApproval": true
+  },
+  "general": {
+    "vimMode": true
+  },
+  "ui": {
+    "footer": {
+      "hideContextPercentage": false
+    },
+    "showMemoryUsage": true,
+    "showModelInfoInChat": true
+  },
+  "model": {
+    "name": "gemini-3.1-pro-preview",
+    "compressionThreshold": 0.7
+  },
+  "context": {
+    "loadMemoryFromIncludeDirectories": true,
+    "fileName": ["AGENTS.md", "GEMINI.md"]
+  }
+}
