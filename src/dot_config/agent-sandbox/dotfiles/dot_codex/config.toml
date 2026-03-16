@@ -3,6 +3,8 @@
 # Model selection
 model = "gpt-5.4"
 model_reasoning_effort = "xhigh"
+model_context_window = 1000000
+model_auto_compact_token_limit = 900000
 
 # We update via agent-sandbox image pinning
 check_for_update_on_startup = false
@@ -21,9 +23,11 @@ project_root_markers = [".agent-sandbox"]
 mcp_oauth_callback_url = "http://mcpauth:50000/callback"
 mcp_oauth_callback_port = 50000
 
-# Enable MCP
 [features]
+# Enable MCP
 experimental_use_rmcp_client = true
+# Prevent machine from going to sleep while running
+prevent_idle_sleep = true
 
 # Add MCP servers
 [mcp_servers.linear]
