@@ -13,8 +13,9 @@ alias ls='ls -alF --color=auto'
 alias grep='grep --color=auto'
 alias mkdir='mkdir -p'
 alias dc='docker compose'
-alias claude-yolo='claude --dangerously-skip-permissions'
-alias codex-yolo='codex --dangerously-bypass-approvals-and-sandbox'
+alias yolo-claude='claude --dangerously-skip-permissions'
+alias yolo-codex='codex --dangerously-bypass-approvals-and-sandbox'
+alias yolo-gemini='gemini --approval-mode=yolo'
 
 # fzf keybindings and completion (ctrl-r, ctrl-t, alt-c)
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh

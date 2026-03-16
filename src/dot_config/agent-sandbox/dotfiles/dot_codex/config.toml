@@ -17,10 +17,14 @@ sandbox_mode = "danger-full-access"
 # Instruct Codex to not stop at .git root, but look for the following files to determine project root
 project_root_markers = [".agent-sandbox"]
 
-# MCP
+# MCP - used fixed port to make it easier to open ports temporarily for auth
+mcp_oauth_callback_url = "http://mcpauth:50000/callback"
+mcp_oauth_callback_port = 50000
+
+# Enable MCP
 [features]
 experimental_use_rmcp_client = true
 
+# Add MCP servers
 [mcp_servers.linear]
 url = "https://mcp.linear.app/mcp"
-
