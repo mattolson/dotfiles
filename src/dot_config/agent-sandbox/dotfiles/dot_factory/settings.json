@@ -1,0 +1,13 @@
+{
+  "logoAnimation": "off",
+  "sessionDefaultSettings": {
+    "model": "gpt-5.4",
+    "reasoningEffort": "xhigh",
+    "interactionMode": "auto",
+    "autonomyLevel": "high",
+    "autonomyMode": "auto-high"
+  },
+  "cloudSessionSync": true,
+  "includeCoAuthoredByDroid": false,
+  "showTokenUsageIndicator": true
+}
