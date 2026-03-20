@@ -16,6 +16,7 @@ alias dc='docker compose'
 alias yolo-claude='claude --dangerously-skip-permissions'
 alias yolo-codex='codex --dangerously-bypass-approvals-and-sandbox'
 alias yolo-gemini='gemini --approval-mode=yolo'
+alias yolo-droid='droid --skip-permissions-unsafe'
 
 # fzf keybindings and completion (ctrl-r, ctrl-t, alt-c)
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
