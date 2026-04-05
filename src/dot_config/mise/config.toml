@@ -2,6 +2,7 @@
 "aqua:aws/aws-cli" = "latest"
 node = "24"
 ruby = "3"
+go = "1.26.1"
 
 [settings]
 idiomatic_version_file_enable_tools = []

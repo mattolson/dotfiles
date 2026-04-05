@@ -25,6 +25,9 @@ mkdir -p "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME"
 eval $(/opt/homebrew/bin/brew shellenv)
 export HOMEBREW_BUNDLE_FILE="$XDG_CONFIG_HOME/homebrew/Brewfile"
 
+# Golang
+export GOPATH="$HOME/dev/go"
+
 # Editor and pager
 export BROWSER='open'
 export EDITOR='vim'
@@ -44,6 +47,7 @@ path=(
   $HOME/.local/{,s}bin(N)
   $HOME/.volta/bin
   /usr/local/{,s}bin(N)
+  $GOPATH/bin
   /opt/homebrew/opt/libpq/bin
   $HOME/dev/workspace/mattolson/agent-sandbox/cli/bin
   $path
