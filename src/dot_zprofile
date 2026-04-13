@@ -50,7 +50,6 @@ path=(
   /usr/local/{,s}bin(N)
   $GOPATH/bin
   /opt/homebrew/opt/libpq/bin
-  $HOME/dev/workspace/mattolson/agent-sandbox/bin
   $path
 )
 
