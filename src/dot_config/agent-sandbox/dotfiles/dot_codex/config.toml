@@ -4,7 +4,7 @@
 model = "gpt-5.4"
 model_reasoning_effort = "xhigh"
 model_context_window = 1000000
-model_auto_compact_token_limit = 900000
+model_auto_compact_token_limit = 800000
 
 # We update via agent-sandbox image pinning
 check_for_update_on_startup = false
@@ -20,12 +20,17 @@ sandbox_mode = "danger-full-access"
 project_root_markers = [".agent-sandbox"]
 
 # MCP - used fixed port to make it easier to open ports temporarily for auth
-mcp_oauth_callback_url = "http://mcpauth:50000/callback"
+mcp_oauth_callback_url = "http://localhost:50000/callback"
 mcp_oauth_callback_port = 50000
+
+# Projects
+[projects."/workspace"]
+trust_level = "trusted"
 
 [features]
 # Enable MCP
 experimental_use_rmcp_client = true
+
 # Prevent machine from going to sleep while running
 prevent_idle_sleep = true
 
@@ -33,6 +38,5 @@ prevent_idle_sleep = true
 [mcp_servers.linear]
 url = "https://mcp.linear.app/mcp"
 
-[projects."/workspace"]
-trust_level = "trusted"
-
+[mcp_servers.datadog]
+url = "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp"
