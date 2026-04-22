@@ -40,3 +40,7 @@ url = "https://mcp.linear.app/mcp"
 
 [mcp_servers.datadog]
 url = "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp"
+
+[mcp_servers.notion]
+url = "https://mcp.notion.com/mcp"
+
