@@ -46,7 +46,6 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs
 path=(
   $HOME/.local/{,s}bin(N)
-  $HOME/.volta/bin
   /usr/local/{,s}bin(N)
   $GOPATH/bin
   /opt/homebrew/opt/libpq/bin
@@ -71,5 +70,11 @@ if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
+{{- if .mattolson.workComputer }}
 # Telport
 export TELEPORT_TOOLS_VERSION=off
+
+# Extra CA for Node
+export NODE_EXTRA_CA_CERTS=/usr/local/share/ca-certificates/workos/workos-local-ca.crt
+{{- end }}
+

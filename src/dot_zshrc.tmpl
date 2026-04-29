@@ -9,10 +9,10 @@ fi
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Project shortcuts
-{{- if eq .chezmoi.hostname "Sierra" }}
-export CURRENT_PROJ="mattolson/hobbs"
-{{- else }}
+{{- if .mattolson.workComputer }}
 export CURRENT_PROJ="workos/infra"
+{{- else }}
+export CURRENT_PROJ="mattolson/hobbs"
 {{- end }}
 export WORKSPACE="$HOME/dev/workspace"
 export PROJ_ROOT="$WORKSPACE/$CURRENT_PROJ"
@@ -26,7 +26,6 @@ alias dc='docker compose'
 alias dot='chezmoi'
 alias av='aws-vault'
 alias hobbs='cd ~/hobbs && dc up -d && dc exec hobbs zsh'
-alias export-dotfiles='mkdir -p ~/.config/dotfiles && dot archive --output=~/.config/dotfiles/archive.tar.gz'
 alias box='agentbox'
 
 # Functions

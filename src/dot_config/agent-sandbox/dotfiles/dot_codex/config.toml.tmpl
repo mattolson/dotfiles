@@ -3,8 +3,13 @@
 # Model selection
 model = "gpt-5.5"
 model_reasoning_effort = "xhigh"
+{{- if .mattolson.workComputer }}
 model_context_window = 1000000
 model_auto_compact_token_limit = 800000
+{{- else }}
+model_context_window = 200000
+model_auto_compact_token_limit = 175000
+{{- end }}
 
 # We update via agent-sandbox image pinning
 check_for_update_on_startup = false
@@ -38,9 +43,13 @@ prevent_idle_sleep = true
 [mcp_servers.linear]
 url = "https://mcp.linear.app/mcp"
 
+{{- if .mattolson.workComputer }}
 [mcp_servers.datadog]
 url = "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp"
 
 [mcp_servers.notion]
 url = "https://mcp.notion.com/mcp"
 
+[mcp_servers.pganalyze]
+url = "https://app.pganalyze.com/mcp"
+{{- end }}
