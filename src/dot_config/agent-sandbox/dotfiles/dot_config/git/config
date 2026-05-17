@@ -26,3 +26,5 @@
   user = mattolson
 [init]
   defaultBranch = main
+[credential "https://github.com"]
+  useHttpPath = true
