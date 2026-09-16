@@ -1,16 +1,18 @@
 {
-{{- if eq .chezmoi.hostname "Sierra" }}
-  "model": "opus",
+{{- if .mattolson.workComputer }}
+  "model": "fable[1m]",
+  "effortLevel": "xhigh",
 {{- else }}
-  "model": "opus[1m]",
+  "model": "fable",
+  "effortLevel": "high",
 {{- end }}
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
   "attribution": {
     "commit": "",
     "pr": ""
   },
   "skipDangerousModePermissionPrompt": true,
+  "tui": "fullscreen",
   "permissions": {
     "allow": [
       "Bash(cat:*)",
